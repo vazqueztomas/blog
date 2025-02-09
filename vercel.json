@@ -17,15 +17,15 @@
             "src": "build.sh",
             "use": "@vercel/static-build",
             "config": {
-                "distDir": "staticfiles_build"
+                "distDir": "staticfiles"
             }
         }
     ],
     "routes":[
         {
-            "src":"/static/(.*)",
-            "dest":"/static_files/\\1"
-        },
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+          },
         {
             "src":"/(.*)",
             "dest":"personal_blog/wsgi.py"
