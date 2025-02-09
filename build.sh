@@ -3,21 +3,20 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-# Create a virtual environment
-python3.9 -m venv venv
+# Upgrade pip
+python3 -m pip install --upgrade pip
 
-# Activate the virtual environment
-source venv/bin/activate
+# Install pipenv
+python3 -m pip install pipenv
 
-# Upgrade pip to the latest version
-pip install --upgrade pip
+# Ensure pipenv is available in the PATH
+export PATH="/python312/bin:$HOME/.local/bin:$PATH"
 
 # Set environment variable to force pipenv to ignore the existing virtual environment
 export PIPENV_IGNORE_VIRTUALENVS=1
 
 # Install dependencies from Pipfile.lock using the specified Python version
-pip install pipenv
-pipenv install --deploy --ignore-pipfile --python /vercel/path1/venv/bin/python3.9
+pipenv install --deploy --ignore-pipfile --python python3.12
 
 # Apply database migrations
 pipenv run python manage.py migrate
