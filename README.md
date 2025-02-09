@@ -50,3 +50,6 @@ wsgi.py: WSGI configuration.
 
 ## License
 This project is licensed under the MIT License.
+
+## TO run:
+pipenv run python manage.py runserver

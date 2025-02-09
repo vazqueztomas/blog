@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-b(t!t9l()gjr$_^^$0h-12e6@e3xyl8tuhz@k%wab2*4xxstgl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh"]
+ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh", "tomasblog.vercel.app"]
 
 
 # Application definition 
@@ -101,9 +101,9 @@ print("Database Configuration:", DATABASES['default'])
 
 # This setting informs Django of the URI path from which your static files will be served to users
 # Here, they well be accessible at your-domain.onrender.com/static/... or yourcustomdomain.com/static/...
-STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "staticfiles" / "static"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
