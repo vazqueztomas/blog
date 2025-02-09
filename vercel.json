@@ -1,5 +1,9 @@
 {
     "version":2,
+    "build":
+    {
+        "buildCommand": "python manage.py migrate && python manage.py collectstatic --noinput"
+    },
     "builds":[
         {
             "src":"personal_blog/wsgi.py",
@@ -10,10 +14,10 @@
             }
         },
         {
-            "src":"build.sh",
-            "use":"@vercel/static-build",
-            "config":{
-                "distDir":"static_files"
+            "src": "build.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "staticfiles_build"
             }
         }
     ],
