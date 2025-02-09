@@ -15,7 +15,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 import dj_database_url
-from decouple import config
 
 load_dotenv()
 
@@ -90,23 +89,12 @@ STORAGES = {
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get('POSTGRES_DATABASE'),
-#         'USER': os.environ.get('POSTGRES_USER'),
-#         'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
-#         'HOST': os.environ.get('POSTGRES_HOST'),
-#         'PORT': os.environ.get("POSTGRES_PORT"),
-#     }
-# }
-
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
+print("Database Configuration:", DATABASES['default'])
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
