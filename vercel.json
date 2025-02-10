@@ -1,9 +1,5 @@
 {
     "version":2,
-    "build":
-    {
-        "buildCommand": "python manage.py migrate && python manage.py collectstatic --noinput"
-    },
     "builds":[
         {
             "src":"personal_blog/wsgi.py",
