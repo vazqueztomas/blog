@@ -10,6 +10,7 @@ python-dotenv = "*"
 python-decouple = "*"
 whitenoise = "*"
 psycopg2-binary = "*"
+django-markdownify = "*"
 
 [dev-packages]
 
