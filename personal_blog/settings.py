@@ -15,7 +15,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from decouple import config
 import dj_database_url
-
+from .database import get_database_configuration
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -94,17 +94,7 @@ WSGI_APPLICATION = "personal_blog.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DATABASE'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('POSTGRES_HOST'),
-        'PORT': os.getenv('POSTGRES_DB_PORT'),
-    }
-}
-print("Database Configuration:", DATABASES['default'])
+DATABASES = get_database_configuration()
 
 
 # Static files (CSS, JavaScript, Images)
