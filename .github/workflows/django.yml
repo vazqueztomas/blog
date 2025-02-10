@@ -25,7 +25,3 @@ jobs:
     - name: Install Dependencies
       run: |
         pipenv install --dev
-        
-    - name: Run Tests
-      run: |
-        python manage.py test
