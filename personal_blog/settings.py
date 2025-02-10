@@ -33,6 +33,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh", "tomasblog.vercel.app"]
 
+STATICFILES_DIRS = []
+
+
 
 # Application definition 
 
