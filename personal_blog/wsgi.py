@@ -15,5 +15,8 @@ from whitenoise import WhiteNoise
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "personal_blog.settings")
 
 application = get_wsgi_application()
-application = WhiteNoise(application, root="staticfiles")
-application.add_files("staticfiles", prefix="staticfiles/")
+
+app = application
+application = WhiteNoise(app, root='staticfiles')
+
+
