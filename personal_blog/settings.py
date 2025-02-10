@@ -33,10 +33,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh", "tomasblog.vercel.app"]
 
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
-
-
+MARKDOWNIFY = {
+   "default": {
+      "WHITELIST_TAGS": ["a", "p", "h1", 'h2', 'h3', 'h4', 'h5', 'h6', 'strong', 'em', 'br', 'hr', 'ul', 'ol', 'li', 'blockquote', 'code', 'pre', 'img'],
+   },   
+}
 # Application definition 
 
 INSTALLED_APPS = [
@@ -47,6 +52,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "markdownify"
 ]
 
 MIDDLEWARE = [
