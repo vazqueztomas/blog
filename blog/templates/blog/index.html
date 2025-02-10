@@ -1,6 +1,7 @@
 <!-- blog/templates/blog/index.html -->
 
 {% extends "base.html" %}
+{% load markdownify %}
 
 {% block page_title %}
     <h2>My Posts</h2>
@@ -18,7 +19,7 @@
                     </a>
                 {% endfor %}
             </small>
-            <p>{{ post.body | slice:":400" }}...</p>
+            <p>{{ post.body | slice:":220" | markdownify }}...</p>
         {% endfor %}
     {% endblock posts %}
 {% endblock page_content %}
